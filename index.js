@@ -19,4 +19,11 @@ const questions = [
         message: "What is your email?",
         name: "email",
     },
-]
+];
+
+
+inquirer
+ .prompt(questions)
+ .then((response) => {
+     console.log(response);
+ });
