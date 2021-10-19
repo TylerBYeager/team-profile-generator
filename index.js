@@ -106,7 +106,7 @@ const internQuestions = async () => {
             },
         ]).then(internInfo => {
             const { name, id, email, school } = internInfo;
-            const newIntern = new Intern(
+            const newIntern = new Intern( 
                 name,
                 id,
                 email,
@@ -125,7 +125,7 @@ const writeHTML = data => {
             console.log(err);
             return;
         } else {
-            Console.log(success);
+            console.log("success");
         }
     })
 }
