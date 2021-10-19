@@ -5,7 +5,7 @@ const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const generateHTML = require("./lib/generateHTML");
-const { Console } = require('console');
+
 
 const teamInfo = [];
 
