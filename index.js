@@ -7,91 +7,115 @@ const Intern = require("./lib/intern");
 
 const teamInfo = [];
 
-const questions = async () => {
-    const answers = await inquirer
-    .prompt([
-        {
-            type: "input",
-            message: "What is the team member's name?",
-            name: "name",
-        },
-        {
-            type: "input",
-            message: "What is their employee ID number?",
-            name: "id",
-        },
-        {
-            type: "input",
-            message: "What is their email?",
-            name: "email",
-        },
-        {
-            type: "list",
-            message: "Please select what job this employee performs.",
-            choices: ["manager", "engineer", "intern"],
-            name: "role",
-        },
-
-])
-        if (answers.role === "manager") {
-            const manager = await inquirer
-            .prompt([
-                {
-                    type: "input",
-                    message: "What is your office number?",
-                    name: "number",
-                },
-            ])
+const managerQuestions = async () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is the manager's name?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is their employee ID number?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is their email?",
+                name: "email",
+            },
+            {
+                type: "input",
+                message: "What is the manager's office number?",
+                name: "number",
+            },
+        ]).then(managerInfo => {
+            const { name, id, email, number } = managerInfo;
             const newManager = new Manager(
-                answers.name,
-                answers.id,
-                answers.email,
-                manager.number,
+                name,
+                id,
+                email,
+                number,
             );
             teamInfo.push(newManager);
+            console.log(newManager)
+        })
+};
 
-
-        } else if (answers.role ==="engineer") {
-            const engineer = await inquirer 
-            .prompt([
-                {
-                    type: "input",
-                    message: "What is your Github username?",
-                    name: "username",
-                },       
-            ])
+const engineerQuestions = async () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is the engineer's name?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is their employee ID number?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is their email?",
+                name: "email",
+            },
+            {
+                type: "input",
+                message: "What is their Github username?",
+                name: "username",
+            },
+        ]).then(engineerInfo => {
+            const { name, id, email, username } = engineerInfo;
             const newEngineer = new Engineer(
-                answers.name, 
-                answers.id, 
-                answers.email,
-                engineer.username,
+                name,
+                id,
+                email,
+                username,
             );
             teamInfo.push(newEngineer);
+            console.log(newEngineer)
+        })
+};
 
-        } else if (answers.role ==="intern") {
-            const intern = await inquirer 
-            .prompt([
-                {
-                    type: "input",
-                    message: "What is your school's name?",
-                    name: "school",
-                },       
-            ])
+const internQuestions = async () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is the intern's name?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is their employee ID number?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is their email?",
+                name: "email",
+            },
+            {
+                type: "input",
+                message: "What is their school's name?",
+                name: "school",
+            },
+        ]).then(internInfo => {
+            const { name, id, email, school } = internInfo;
             const newIntern = new Intern(
-                answers.name, 
-                answers.id, 
-                answers.email,
-                intern.school,
+                name,
+                id,
+                email,
+                school,
             );
             teamInfo.push(newIntern);
+            console.log(newIntern);
             console.log(teamInfo);
-            }
-
+        })
 };
-questions();
 
-// inquirer
-//  .prompt(questions)
-//  .then((response) => {
-//      console.log(response);
-//  });
+managerQuestions()
+    .then(engineerQuestions)
+    .then(internQuestions);
