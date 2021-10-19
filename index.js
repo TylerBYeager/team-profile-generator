@@ -49,8 +49,44 @@ const questions = async () => {
                 manager.number,
             );
             teamInfo.push(newManager);
+
+
+        } else if (answers.role ==="engineer") {
+            const engineer = await inquirer 
+            .prompt([
+                {
+                    type: "input",
+                    message: "What is your Github username?",
+                    name: "username",
+                },       
+            ])
+            const newEngineer = new Engineer(
+                answers.name, 
+                answers.id, 
+                answers.email,
+                engineer.username,
+            );
+            teamInfo.push(newEngineer);
+
+        } else if (answers.role ==="intern") {
+            const intern = await inquirer 
+            .prompt([
+                {
+                    type: "input",
+                    message: "What is your school's name?",
+                    name: "school",
+                },       
+            ])
+            const newIntern = new Intern(
+                answers.name, 
+                answers.id, 
+                answers.email,
+                intern.school,
+            );
+            teamInfo.push(newIntern);
             console.log(teamInfo);
-}
+            }
+
 };
 questions();
 
