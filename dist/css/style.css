@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    font-size: 22px;
+}
+
+
+li {
+    list-style-type: none;
+    max-width: 80%;
+}
+
+h3 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.card {
+    border: 3px solid black;
+}

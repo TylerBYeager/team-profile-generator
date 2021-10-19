@@ -30,15 +30,15 @@ const managerQuestions = async () => {
             {
                 type: "input",
                 message: "What is the manager's office number?",
-                name: "number",
+                name: "officeNumber",
             },
         ]).then(managerInfo => {
-            const { name, id, email, number } = managerInfo;
+            const { name, id, email, officeNumber } = managerInfo;
             const newManager = new Manager(
                 name,
                 id,
                 email,
-                number,
+                officeNumber,
             );
             teamInfo.push(newManager);
             console.log(newManager)
@@ -66,15 +66,15 @@ const engineerQuestions = async () => {
             {
                 type: "input",
                 message: "What is their Github username?",
-                name: "username",
+                name: "github",
             },
         ]).then(engineerInfo => {
-            const { name, id, email, username } = engineerInfo;
+            const { name, id, email, github } = engineerInfo;
             const newEngineer = new Engineer(
                 name,
                 id,
                 email,
-                username,
+                github,
             );
             teamInfo.push(newEngineer);
             console.log(newEngineer)
