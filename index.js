@@ -4,6 +4,8 @@ const inquirer = require('inquirer');
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+const generateHTML = require("./lib/generateHTML");
+const { Console } = require('console');
 
 const teamInfo = [];
 
@@ -116,6 +118,24 @@ const internQuestions = async () => {
         })
 };
 
+
+const writeHTML = data => {
+    fs.writeFile("./dist/index.html", data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            Console.log(success);
+        }
+    })
+}
+
 managerQuestions()
     .then(engineerQuestions)
-    .then(internQuestions);
+    .then(internQuestions)
+    .then(teamInfo => {
+        return generateHTML(teamInfo);
+    })
+    .then(pageHTML => {
+        return writeHTML(pageHTML);
+    })
