@@ -7,6 +7,7 @@
 
 body {
     font-size: 22px;
+    background-color: slateblue;
 }
 
 
@@ -15,17 +16,40 @@ li {
     max-width: 80%;
 }
 
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightskyblue;
+    height: 50px;
+}
+
 h3 {
     text-align: center;
 }
 
 .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 10px;
 }
 
 .card {
     border: 3px solid black;
+    margin: 20px;
+    background-color: #ccc;
+    box-shadow: 5px 5px 10px black;
+    width: 350px;
+    height: 275px;
+}
+
+.card-header {
+    background-color: red;
+    display: grid;
+    border: 3px solid yellow;
+}
+
+.card:hover {
+    transform: rotate(-10deg);
 }
