@@ -10,6 +10,8 @@
   
   ## Description  
   This is a team profile generator created through node.js, javascript, css, and html. A user can use this app to answers a few prompts pertaining to employees and their roles which will dynamically generate employee profile cards into an Index.html file and styled with css. This repository contains a plethora of files that all have important roles. The __tests__ directory contains files that ensured my functionality remained. The lib directory contains the employee class files. These were developed then imported into the index.js file to be used within the inquirer prompts. The generateHTML.js file is where the information is placed in cards that are then added to an index.html file that is generated once all questions have been answered.  
+![snapshot](https://user-images.githubusercontent.com/89880190/137998048-7e64e173-8892-407c-9b8e-6023f097a29d.png)
+
 
   Additionally, here is a link to the generator working. 
   (https://watch.screencastify.com/v/9rCtpra9natUP25z2Y9D), (https://watch.screencastify.com/v/71sT9oFJ1G2RKrHVnbpM)
