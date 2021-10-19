@@ -115,6 +115,7 @@ const internQuestions = async () => {
             teamInfo.push(newIntern);
             console.log(newIntern);
             console.log(teamInfo);
+            return teamInfo;
         })
 };
 
@@ -134,6 +135,7 @@ managerQuestions()
     .then(engineerQuestions)
     .then(internQuestions)
     .then(teamInfo => {
+        
         return generateHTML(teamInfo);
     })
     .then(pageHTML => {
